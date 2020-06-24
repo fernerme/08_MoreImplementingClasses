@@ -19,7 +19,7 @@ def main():
     run_test_simple_t()
     run_test_set_colors()
     run_test_move_by()
-    # run_test_clone()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -244,9 +244,11 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
+        self.v_rect.move_by(dx, dy)
+        self.h_rect.move_by(dx, dy)
 
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
