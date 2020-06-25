@@ -275,8 +275,21 @@ class CapitalT(object):
         Type hints:
           :rtype: CapitalT
         """
+        letter_thickness = self.h_rect.get_height()
+        width = self.h_rect.get_width()
+        height = self.v_rect.get_height()
+        h_rect_ulc = self.h_rect.get_upper_left_corner()
+        intersection_center = rg.Point(0,0)
+        intersection_center.x = h_rect_ulc.x + 0.5*width
+        intersection_center.y = h_rect_ulc.y + 0.5*letter_thickness
+        original_outline_color = self.h_rect.outline_color
+        original_fill_color = self.h_rect.fill_color
+        new_capital_t = CapitalT(intersection_center, width, height, letter_thickness)
+        new_capital_t.set_colors(original_fill_color, original_outline_color)
+        return new_capital_t
+
         # --------------------------------------------------------------
-        # TODO: 7.
+        # DONE: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
